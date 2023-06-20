@@ -335,15 +335,16 @@ myImage.show();
 
 
 //13
-
-    import pandas as pd
-df=pd.read_csv("emails.csv")
+      import pandas as pd
+df=pd.read_csv("Ecommerce Customers.csv")
 df.head()
 df.tail()
-
-
+em = df["Address"]
+print(em)
 print(df.loc[1])
 print(df.info())
+
+
 
 //14
 from tkinter import*
