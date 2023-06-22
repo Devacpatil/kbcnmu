@@ -1,0 +1,35 @@
+1)
+$ git config --global user.name "chetancpatil"
+
+$ git config --global user.email "chetanpatil94034@gmail.com
+
+$ git clone https://github.com/chetancpatil/kbcnum11.git
+
+ls
+
+$ cd kbcnum11
+
+$ vi fille.txt
+
+$ git add fille.txt
+
+$ git commit -m "added the file"
+
+2)
+git push
+
+3)
+git pull
+
+4)
+git log
+git log | less
+
+5)
+git branch "branchname" 
+git checkout "branchname"
+
+
+
+
+
