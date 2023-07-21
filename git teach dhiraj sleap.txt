@@ -33,3 +33,45 @@ git checkout "branchname"
 
 
 
+
+
+
+$ git push -u origin main
+
+$ ls
+
+$ git pull
+
+$ ls
+
+$ git branch deva
+
+$ git checkout deva
+
+$ ls
+
+$ git branch
+
+git add file.txt
+
+$ git commit -m "modified file"
+
+$ cat file.txt
+
+$ git checkout main
+
+$ cat file.txt
+
+$ git merge deva
+
+$ cat file.txt
+
+$ git log
+
+$ git log | less
+
+$ git diff
+
+
+
+
