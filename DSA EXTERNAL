@@ -1,0 +1,1561 @@
+1
+1. Implementation of programs based on Arrays (INSERT & DEL from beg and end)
+
+1. Assignment Name: Program for array perform insert, delete & display operation.
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+class demo
+{
+	int a[10],i,j,n,item,k;
+public:
+	void get();
+	void insert();
+	void del();
+	void dis();
+};
+void demo::get()
+{
+	cout<<"\nEnter n";
+	cin>>n;
+	cout<<"\nEnter Array Element:";
+	for(i=1;i<=n;i++)
+	cin>>a[i];
+}
+void demo::insert()
+{
+	cout<<"\nEnter Position:";
+	cin>>k;
+	cout<<"\nEnter Item:";
+	cin>>item;
+	j=n;
+	while(j>=k)
+	{
+		a[j+1]=a[j];
+		j--;
+	}
+	a[k]=item;
+	n++;
+}
+void demo::del()
+{
+	cout<<"\nEnter Position:";
+	cin>>k;
+	j=k;
+	while(j<=n-1)
+	{
+		a[j]=a[j+1];
+		j++;
+	}
+	n--;
+}
+void demo::dis()
+{
+	cout<<"\n Elements are\n";
+	for(i=1;i<=n;i++)
+	cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	int ch;
+	d.get();
+	cout<<"\n1. Insert 2.Del 3.Dis 4. Exit\n";
+	while(ch!=4)
+	{
+		cout<<"\n Enter choice";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: d.insert(); break;
+			case 2: d.del(); break;
+			case 3: d.dis(); break;
+			case 4: exit(0);
+		}
+	}
+	getch();
+}
+
+
+
+
+
+2
+2. Implementation of programs based on Multidimensional Arrays / Matrices (ADD, SUB, MUL)
+
+2. Assignment Name: Program for matrix addition, substraction, multiplication and
+transpose of matrix
+
+#include<iostream.h>
+#include<conio.h>
+class matrix
+{
+	int a[5][5],b[5][5],c[5][5],d[5][5],e[5][5],f[5][5];
+	int p,q,i,j,k,n,m;
+	public:
+		void get();
+		void add();
+		void sub();
+		void trans();
+		void mul();
+};
+void matrix::get()
+{
+	cout<<"\nEnter Number of Row & Column :\t";
+	cin>>n>>m;
+	cout<<"\nEnter the first Matrix:\n";
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		cin>>a[i][j];
+	}
+	cout<<"\nEnter Number of Row & Column :\t";
+	cin>>p>>q;
+	cout<<"\nEnter the Second Matrix:\n";
+	for(i=0;i<p;i++)
+	{
+		for(j=0;j<q;j++)
+		cin>>b[i][j];
+	}
+}
+void matrix::add()
+{
+	cout<<"\nThe addition of two matrix is :\n";
+ 	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			c[i][j]=a[i][j]+b[i][j];
+ 			cout<<c[i][j]<<"\t";
+		}
+       	      cout<<"\n";
+	}
+
+}
+void matrix::sub()
+{
+ 	cout<<"\nThe Subtraction of two matrix is :\n";
+ 	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			d[i][j]=a[i][j]-b[i][j];
+ 			cout<<d[i][j]<<"\t";
+		}
+ 	      cout<<"\n";
+	}
+}
+void matrix::trans()
+{
+	cout<<"\nThe Transpose of first matrix is :\n";
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			e[i][j]=a[j][i];
+			cout<<e[i][j]<<"\t";
+		}
+		cout<<"\n";
+	}
+}
+void matrix::mul()
+{
+	cout<<"\nThe Matrix Multiplication is : \n";
+	if(m==p)
+	{
+	 for(i=0;i<n;i++)
+	 {
+		for(j=0;j<q;j++)
+		{
+		c[i][j]=0;
+		 for(k=0;k<p;k++)
+ 		 {
+			c[i][j]=c[i][j]+a[i][k]*b[k][j];
+ 		 }
+ 			cout<<c[i][j]<<"\t";
+		}
+	        cout<<"\n";
+	}
+       }
+       else
+       cout<<"\n Matrix Multiplication not possible";
+}
+void main()
+{
+	clrscr();
+	matrix m;
+	m.get();
+	m.add();
+	m.sub();
+	m.trans();
+	m.mul();
+	getch();
+}
+
+
+
+
+3
+3. Implementation of programs based on Static - Stack (using Array)
+
+3. Assignment Name: Implement Stack for Integer/character perform different
+operation on stack (push, pop, peep, change). 
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+int n;
+class stack
+{
+ 	private:
+		int s[10],top,ele,i; 
+ 	public:
+		stack()
+	{
+		top=-1;
+	}
+	void push();
+	void dis();
+	void pop();
+	void peep();
+	void change();
+};
+void stack::push()
+{
+	if(top>=n-1)
+	 cout<<"\nStack is overflow:";
+	else
+	{
+	cout<<"\nEnter element:";
+	cin>>ele;
+	top++;
+	s[top]=ele;
+	}
+}
+void stack::dis()
+{
+	if(top==-1)
+	{
+	 cout<<"\n Stack is Empty";
+	}
+	else
+	{
+	cout<<"\nElements in stack are:\n";
+	for(i=top;i>=0;i--)
+	 cout<<s[i]<<"\t";
+	}
+}
+void stack::pop()
+{
+	if(top==-1)
+	{
+		cout<<"\nUnderflow";
+	}
+	else
+	 {
+		cout<<"\nPop ele is "<<s[top];
+ 		top--;
+ 	}
+}
+void stack::peep()
+{
+	cout<<"\nEnter position:";
+	cin>>i;
+	if((top-i+1)<0)
+	{
+		cout<<"\nUnderflow";
+	}
+	else
+ 	{
+	cout<<"\nPeep ele is "<<s[top-i+1];
+ 	}
+}
+void stack::change()
+{
+	cout<<"\nEnter position ";
+	cin>>i;
+	if((top-i+1)<0)
+	{
+		cout<<"\nUnderflow";
+	}
+	else
+	{
+		int n; 
+		cout<<"\nEnter element:";
+		cin>>n;
+		s[top-i+1]=n;
+	}
+}
+void main()
+{
+	clrscr();
+	stack s;
+	cout<<"Enter size of stack";
+	cin>>n;
+	int ch;
+	cout<<"\n1. Push 2.Display 3.Pop 4.Peep 5.Change 6.Exit\n";
+	while(ch!=6)
+	{
+		cout<<"\nEnter ch :";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: s.push(); break;
+			case 2: s.dis(); break;
+			case 3: s.pop();break;
+			case 4: s.peep(); break;
+			case 5: s.change(); break;
+			case 6: exit(0);
+		}
+	}
+	getch();
+}
+
+
+
+
+
+
+4
+8. Implementation of programs for Linear Search & Binary Search (using array)
+
+13. Assignment Name: Implement Linear and Binary Search
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+class demo
+{
+	int a[10],i,j,n,f,temp,ele,demo,mid,low,high;
+public:
+	void get();
+	void sort();
+	void linear();
+	void binary();
+	void dis();
+};
+void demo::get()
+{
+	cout<<"\n Enter n:";
+	cin>>n;
+	cout<<"\nEnter array Elements:";
+	for(i=1;i<=n;i++)
+ 	 cin>>a[i];
+}
+void demo::linear()
+{
+	int ele;
+	cout<<"\nEnter the element to be search";
+	cin>>ele;
+	for(i=1;i<=n;i++)
+	{
+		if(a[i]==ele)
+		{
+			cout<<"\nSuccessful search";
+			cout<<"\nElement is found at position "<<i;
+			return;
+		}
+	}
+	if(i>n)
+	{
+		cout<<"\nUnsuccessful search:";
+		cout<<"\nElement is not found ";
+	}
+}
+void demo::sort()
+{
+	for(i=1;i<=n;i++)
+	{
+ 	  for(j=1;j<=n-1;j++)
+ 	   {
+	     if(a[j]>a[j+1])
+ 	       {
+	      temp=a[j];
+	      a[j]=a[j+1];
+	      a[j+1]=temp;
+ 	       }
+ 	   }
+ 	  }
+}
+void demo::binary()
+{
+	cout<<"\nEnter element to be search ";
+	cin>>ele;
+	f=0;
+	low=1;
+	high=n;
+	while(low<=high)
+	{
+		mid=(low+high)/2;
+		if(a[mid]==ele)
+		{
+			f=1;
+			cout<<"\nElement is found at :"<<mid;
+			return;
+		}
+		else if(a[mid]<ele)
+			low=mid+1;
+		else if(a[mid]>ele)
+			high=mid-1;
+	}
+	if(f==0)
+	cout<<"\n Element is not found:";
+}
+void demo::dis()
+{
+	cout<<"\n Element are \n";
+	for(i=1;i<=n;i++)
+	 cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	int ch;
+	d.get();
+	d.dis();
+	cout<<"\n 1:Linear 2:Binary 3:exit\n";
+	while(ch!=3)
+	{
+		cout<<"\nEnter Choice:";
+		cin>>ch;
+		switch(ch)
+		{
+		 case 1: d.linear(); break;
+		 case 2: d.sort();
+			d.dis();
+			d.binary(); break;
+		 case 3: exit(0); break;
+		}
+	}
+	getch();
+}
+
+
+
+
+
+5 
+9. Implementation of programs for Sorting techniques - Bubble Sort
+
+14. Assignment Name: Perform Bubble Sort Ascending/Descending order for int/String
+
+#include<iostream.h>
+#include<conio.h>
+class demo
+{
+	int a[10];
+	int i,last,exch,j,n,temp;
+public:
+	void get();
+	void asc_sort();
+	void dec_sort();
+	void disp();
+};
+void demo::get()
+{
+	cout<<"\n Enter the array size:";
+	cin>>n;
+	cout<<"\nEnter the array element:";
+	for(i=1;i<=n;i++)
+	cin>>a[i];
+}
+void demo::asc_sort()
+{
+	last=n;
+	for(i=1;i<=n-1;i++)
+	{
+		exch=0;
+		for(j=1;j<=last-1;j++) 
+		{
+			if(a[j]>a[j+1]) 
+			{
+				temp=a[j];
+				a[j]=a[j+1]; 
+				a[j+1]=temp; 
+			}
+			exch=exch+1;
+		}
+	}
+	if(exch==0)
+	return;
+	else
+	last=last-1;
+}
+void demo::dec_sort()
+{
+	last=n;
+	for(i=1;i<=n-1;i++)
+	{
+		exch=0;
+		for(j=1;j<=last-1;j++) 
+		{
+			if(a[j]<a[j+1]) 
+			{
+				temp=a[j]; 
+				a[j]=a[j+1]; 
+				a[j+1]=temp; 
+			}	
+			exch=exch+1;
+		}
+	}
+	if(exch==0)
+	return;
+	else
+	last=last-1;
+}
+void demo::disp()
+{
+	cout<<"\nThe array element are";
+	for(i=1;i<=n;i++)
+		cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	d.get();
+	d.disp();
+	d.asc_sort();
+	cout<<"\nAfter Ascending Sort:";
+	d.disp();
+	d.dec_sort();
+	cout<<"\nAfter Descending Sort:";
+	d.disp();
+	getch();
+}
+
+
+
+
+
+6
+10. Implementation of programs for Sorting techniques - Selection Sort
+
+15. Assignment Name: Perform Selection Sort Ascending/Descending order for int/String
+
+#include<iostream.h>
+#include<conio.h>
+class demo
+{
+ 	int a[10],temp; 
+ 	int i, min_index,j,n;
+public:
+	void get();
+	void asc_sort();
+	void dsc_sort();
+	void disp();
+};
+void demo::get()
+{
+	cout<<"\nEnter the array size:";
+	cin>>n;
+	cout<<"\nEnter the array element:";
+	for(i=1;i<=n;i++)
+	cin>>a[i];
+}
+void demo::asc_sort()
+{
+	for(i=1;i<=n-1;i++)
+	{
+		min_index=i;
+		for(j=i+1;j<=n;j++) 
+		{
+			if(a[j]<a[min_index]) 
+			min_index=j;
+		}
+		if(min_index!=i)
+		{
+			temp=a[min_index]; 
+			a[min_index]=a[i]; 
+			a[i]=temp; 
+		}
+	}
+}
+void demo::dsc_sort()
+{
+	for(i=1;i<=n;i++)
+	{
+		min_index=i;
+		for(j=i+1;j<=n;j++) 
+		{
+			if(a[j]>a[min_index]) 
+			min_index=j;
+		}
+		if(min_index!=i)
+		{
+			temp=a[min_index]; 
+			a[min_index]=a[i]; 
+			a[i]=temp; 
+		}
+	}
+}
+void demo::disp()
+{
+	cout<<"\n The array element are";
+	for(i=1;i<=n;i++)
+	cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	d.get();
+	d.disp();
+	d.asc_sort();
+	cout<<"\nAfter ascending sort:";
+	d.disp();
+	d.dsc_sort();
+	cout<<"\n After Descending sort:";
+	d.disp();
+	getch();
+}
+
+
+
+
+
+
+7 
+11. Implementation of programs for Sorting techniques - Insertion Sort
+
+16. Assignment Name: Implement Insertion Sort
+
+#include<iostream.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+class insert
+{
+	int n,a[10],temp,ptr,q,i,j,k,key;
+	public:
+	void get();
+	void sort();
+	void display();
+};
+void insert::get()
+{
+	cout<<"\nEnter Range:";
+	cin>>n;
+	for(i=1;i<=n;i++)
+       	 a[i]=random(1000);
+	cout<<"\nElements are :";
+	for(i=1;i<=n;i++)
+	 cout<<a[i]<<"\t";
+}
+void insert::sort()
+{
+	a[0]=-9999;
+	for(i=2;i<=n;i++)
+	{
+		temp=a[i];
+		ptr=i-1;
+		while(temp<a[ptr])
+		{
+			a[ptr+1]=a[ptr];
+			ptr--;
+		}
+		a[ptr+1]=temp;
+	}
+}
+void insert::display()
+{
+	cout<<"\nSorted Element using Insertion Sort:";
+	for(i=1;i<=n;i++)
+	 cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	insert h;
+	h.get();
+	h.sort();
+	h.display();
+	getch();
+}
+
+
+
+
+
+
+8
+12. Implementation of programs for Sorting techniques - Quick Sort
+
+18. Assignment Name: Implement Quick sort for integer in Ascending / Descending order
+
+
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+class demo
+{
+	int x[20],temp;
+	int a,n,i,j,left,right;
+public:
+	void get();
+	void asort(int,int);
+	int partition(int,int);
+			void disp();
+};
+void demo::get()
+{
+	cout<<"\nEnter the array size:";
+	cin>>n;
+	cout<<"\nEnter the array element:";
+	for(i=1;i<=n;i++)
+	cin>>x[i];
+	asort(1,n);
+}
+void demo::asort(int p,int q)
+{
+	if(p<q)
+	{
+		j=partition(p,q);
+		asort(p,j-1);
+		asort(j+1,q);
+	}
+}
+int demo::partition(int lb, int ub)
+{
+	a=x[lb];
+	left=lb+1;
+	right=ub;
+	do 
+	{
+		while(x[left]<a) 
+		left++;
+		while(x[right]>a) 
+		right--;
+		if(left<right)
+		{
+			temp=x[left];
+			x[left]=x[right];
+			x[right]=temp;
+		}
+	}
+	while(left<=right);
+	x[lb]=x[right];
+	x[right]=a;
+	return(right);
+}
+void demo::disp()
+{
+	cout<<"\nThe array element are:";
+	for(i=1;i<=n;i++)
+	cout<<x[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	d.get();
+	cout<<"\nAfter Ascending sort"; 
+	d.disp();
+	getch();
+}
+
+
+
+
+
+
+9
+13. Implementation of programs for Sorting techniques - Merge Sort
+
+19. Assignment Name: Implement Merge sort in ascending / descending order
+
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+class demo
+{
+	int x[20],temp;
+	int a,n,i,j,left,right;
+public:
+	void get();
+	void asort(int,int);
+	int partition(int,int);
+			void disp();
+};
+void demo::get()
+{
+	cout<<"\nEnter the array size:";
+	cin>>n;
+	cout<<"\nEnter the array element:";
+	for(i=1;i<=n;i++)
+	cin>>x[i];
+	asort(1,n);
+}
+void demo::asort(int p,int q)
+{
+	if(p<q)
+	{
+		j=partition(p,q);
+		asort(p,j-1);
+		asort(j+1,q);
+	}
+}
+int demo::partition(int lb, int ub)
+{
+	a=x[lb];
+	left=lb+1;
+	right=ub;
+	do 
+	{
+		while(x[left]<a) 
+		left++;
+		while(x[right]>a) 
+		right--;
+		if(left<right)
+		{
+			temp=x[left];
+			x[left]=x[right];
+			x[right]=temp;
+		}
+	}
+	while(left<=right);
+	x[lb]=x[right];
+	x[right]=a;
+	return(right);
+}
+void demo::disp()
+{
+	cout<<"\nThe array element are:";
+	for(i=1;i<=n;i++)
+	cout<<x[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	demo d;
+	d.get();
+	cout<<"\nAfter Ascending sort"; 
+	d.disp();
+	getch();
+}
+
+
+
+
+
+
+10
+14. Implementation of programs for Sorting techniques - Heap Sort
+
+21. Assignment Name: Implement Heap Sort in ascending / descending order
+
+
+#include<iostream.h>
+#include<conio.h>
+class heap
+{
+	int n,a[10],q,i,j,k,key,temp;
+public:
+	void get();
+	void create();
+	void sort();
+	void display();
+};
+void heap::get()
+{
+	cout<<"\nEnter range:";
+	cin>>n;
+	cout<<"\nEnter the elements\n";
+	for(i=1;i<=n;i++)
+	cin>>a[i];
+}
+void heap::create()
+{
+	for(q=2;q<=n;q++)
+	{
+		i=q;
+		key=a[q];
+		j=i/2;
+		while(i>1 && key >a[j]) 
+		{
+			a[i]=a[j];
+			i=j;
+			j=i/2;
+			if(j<1)
+			j=1;
+		}
+		a[i]=key;
+	}
+}
+void heap::sort()
+{
+	create();
+	cout<<"\nMax Heap Tree";
+	display();
+	for(q=n;q>=2;q--)
+	{
+		temp=a[1];
+		a[1]=a[q];
+		a[q]=temp;
+		i=1;
+		key=a[1];
+		j=2;
+		if(j+1<q)
+			if(a[j+1]>a[j])
+			j++;
+		while(j<=q-1 && a[j]>key)
+		{
+			a[i]=a[j];
+			i=j;
+			j=i*2;
+			if(j+1<q)
+			if(a[j+1]>a[j])
+				j++;
+			else
+				if(j>n)
+				j=n;
+			a[i]=key;
+		}
+	}
+}
+void heap::display()
+{
+	for(i=1;i<=n;i++)
+		cout<<a[i]<<"\t";
+}
+void main()
+{
+	clrscr();
+	heap h;
+	h.get();
+	h.sort();
+	cout<<"\nSorted element are:";
+	h.display();
+	getch();
+}
+
+
+
+
+
+
+11 
+17. Implementation of programs based on Graph - Depth First Traversal
+
+24. Assignment Name: Implement DFS
+
+#include<iostream.h>
+#include<conio.h>
+class dfstree
+{
+	int a[20][20], visited[20],n,i,j;
+public:
+	void dfs(int);
+	void get();
+};
+void dfstree::get()
+{
+	cout<<"\nEnter the number of node";
+	cin>>n;
+	for(i=0;i<n;i++)
+	 visited[i]=0;
+	cout<<"\nEnter the adjancy matrix:";
+	for(i=0;i<n;i++)
+	{
+       	 for(j=0;j<n;j++)
+ 	  {
+ 	   cin>>a[i][j];
+ 	  }
+	}
+	dfs(0);
+}
+void dfstree::dfs(int v)
+{
+	int k;
+	visited[v]=1;
+	cout<<"\t"<<v+1;
+	for(k=1;k<n;k++)
+	if(a[v][k]==1)
+	if(visited[k]==0)
+	 dfs(k);
+}
+void main()
+{
+	clrscr();
+	dfstree d;
+	d.get();
+	getch();
+}
+
+
+*/ Output */
+Enter the number of node5
+Enter the adjancy matrix:
+0 1 1 0 0
+1 0 0 1 1
+1 0 0 1 0
+0 1 1 0 1
+0 1 0 1 0
+
+1  2  4  3  5
+
+
+
+
+
+12 not run
+18. Implementation of programs based on on Graph - Breadth First Traversal----
+
+25. Assignment Name: Implement BFS
+
+#include<iostream.h>
+#include<conio.h>
+class bfstree
+{
+	int reach[20],a[20][20],q[20],n,i,j,f,r,index;
+public:
+	bfstree()
+	{
+	 f=r=0;
+	 index=1;
+	}
+	void get();
+	void bfs();
+};
+void bfstree::get()
+{
+	cout<<"\nEnter number of vertices:";
+	cin>>n;
+	cout<<"\nEnter Adjacency matrix:";
+	for(i=1;i<=n;i++)
+	for(j=1;j<=n;j++)
+	{
+	 reach[i]=0;
+	 cin>>a[i][j];
+	}
+}
+void bfstree::bfs()
+{
+	reach[1]=1;
+	f++;
+	r++;
+	q[r]=index;
+	cout<<"\nBFS is ";
+	while(f<=r)
+	{
+	 index=q[f];
+	 f++;
+	 cout<<index<<"\t";
+ 	  for(j=1;j<=n;j++)
+ 	  {
+ 	   if(a[index][j]==1 && reach[j]!=1)
+ 	   {
+	    reach[j]=1;
+	    r++;
+	    q[r]=j;
+       	   }
+ 	 }
+       }
+}
+void main()
+{
+	clrscr();
+	bfstree b;
+	b.get();
+	b.bfs();
+	getch();
+}
+
+
+Enter number of vertices:6
+Enter Adjacency matrix:
+0 1 1 0 0 0
+1 0 0 1 0 0
+1 0 0 0 0 1
+0 1 0 0 1 1
+0 0 0 1 0 0
+0 0 1 1 0 0
+
+BFS is 1 2 3 4 6 5
+
+
+
+
+
+13
+16. Implementation of programs based on Graph - Obtaining All Pair Shortest Path ( using Floyd-Warshall algorithm)
+
+26. Assignment Name: Implement All Pair Shortest Path (Floyd-Warshall)
+
+#include<iostream.h>
+#include<conio.h>
+class path
+{
+	int a[5][5],i,j,k,n,s,d;
+public:
+	void insert();
+	void display();
+};
+void path::insert()
+{
+	cout<<"\nEnter the no. of vertices";
+	cin>>n;
+	cout<<"\nEnter the matrix:";
+	for(i=1;i<=n;i++)
+	for(j=1;j<=n;j++)
+	 {
+ 	    cin>>a[i][j];
+ 	    if(a[i][j]==-1)
+	      a[i][j]=9999;
+ 	 }
+	for(i=1;i<=n;i++)
+	 for(j=1;j<=n;j++)
+ 	  for(k=1;k<=n;k++)
+ 	   if(a[i][j]<(a[i][k]+a[k][j]))
+ 	     a[i][j]=a[i][j];
+	   else
+ 	     a[i][j]=(a[i][k]+a[k][j]);
+}
+void path::display()
+{
+	for(i=1;i<=n;i++)
+	{
+	 for(j=1;j<=n;j++)
+ 	  cout<<"\t"<<a[i][j];
+ 	  cout<<"\n";
+	}
+cout<<"\nEnter the source vertex:";
+cin>>s;
+cout<<"\nEnter the destination vertex:";
+cin>>d;
+cout<<"\nPath from Source "<<s<<" to destination "<<d<<" is ";
+cout<<a[s][d];
+}
+void main()
+{
+	clrscr();
+	path p;
+	p.insert();
+	cout<<"\n Shortest path is \n";
+	p.display();
+	getch();
+}
+
+
+*/ Output */
+Enter the no. of vertices 3
+Enter the matrix:
+0 4 11
+6 0 2
+3 -1 0
+Shortest path is
+ 0 4 6
+ 5 0 2
+ 3 7 0
+Enter the source vertex:3
+Enter the destination vertex:2
+Path from Source 3 to destination 2 is 7
+
+
+
+
+14
+7. Implementation of programs based on Dynamic -Queue (using Linked List)
+
+7. Assignment Name: Implement Queue using Link List
+
+
+#include<conio.h>
+#include<iostream.h>
+#include<process.h>
+class queue
+{
+	int info, ele,c;
+	queue *node,*link,*start,*move;
+public:
+	queue()
+	{
+	start=NULL;
+	c=0;
+	}
+	void insert();
+	void del();
+	void dis();
+};
+void queue::insert()
+{
+	node=new queue;
+	if(c<3)
+	{
+		cout<<"\nEnter Info:";
+		cin>>ele;
+		node->info=ele;
+		node->link=NULL;
+		if(start==NULL)
+		{
+			start=node;
+			c++;
+			return;
+		}
+		else
+		{
+			move=start;
+			while(move->link!=NULL)
+			move=move->link;
+			move->link=node;
+			c++;
+		}
+	}
+	else
+		cout<<"\n Overflow";
+}
+void queue::del()
+{
+	move=start;
+	if(move!=NULL)
+	{
+	move=move->link;
+	cout<<"\nDeleted Element is :"<<start->info;
+	start=move;
+	}
+	else
+		cout<<"\nUnderflow";
+}
+void queue::dis()
+{
+	move=start;
+	if(move==NULL)
+	{
+		cout<<"\n Queue is empty ";
+		return;
+	}
+	else
+	{
+		while(move!=NULL)
+		{
+			cout<<move->info<<"\t";
+			move=move->link;
+		}
+	}
+}
+void main()
+{
+	clrscr();
+	int ch;
+	queue s;
+	cout<<"\n1.Insert 2.Show 3.Delete 4.Exit";
+	while(ch!=4)
+	{
+		cout<<"\nEnter Choice";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: s.insert();break;
+			case 2: s.dis();break;
+			case 3: s.del();break;
+			case 4:exit(0);
+		}
+	}
+getch();
+}
+
+
+
+
+
+
+15
+5. Implementation of programs based on Static - Circular-Queue (using Array)
+
+8. Assignment Name: Implement Circular Queue, perform different operation of
+circular queue (push ,pop, show) 
+
+#include<iostream.h>
+#include<conio.h>
+class queue
+{
+	int a[5],r,f;
+public:
+	queue()
+	{
+		f=r=-1;
+	}
+	void push();
+	void pop();
+	void show();
+};
+void queue::push()
+{
+	int item;
+	if(f==0 &&r==4 || f==r+1)
+	{
+		cout<<"\n Overflow";
+	}
+	else
+	{
+		if(r==4)
+		r=-1;
+		r++;
+		cout<<"\nEnter item :";
+		cin>>item;
+		a[r]=item;
+		if(f==-1)
+		{
+			f=0;
+		}
+	}
+}
+void queue::pop()
+{
+	if(f==-1)
+	{
+		cout<<"\n Underflow";
+	}
+	else
+	{
+		cout<<"\nDeleted element is :"<<a[f];
+		if(f==r)
+		{
+			f=-1;
+			r=-1;
+		}
+		else
+		{
+			if(f==4)
+	        	 f=0;
+			else
+			 f++;
+		}
+	}
+}
+void queue::show()
+{
+	if(f==-1)
+	{
+		cout<<"\nEmpty :";
+	}
+	else if(f<=r)
+	{
+		for(int i=f;i<=r;i++)
+		{
+			cout<<"\n"<<a[i];
+		}
+	}
+	else
+	{
+		for(int i=f;i<=4;i++)
+		{
+			cout<<"\n"<<a[i];
+		}
+		for(int j=0;j<=r;j++)
+		{
+			cout<<"\n"<<a[j];
+		}
+	}
+}
+void main()
+{
+	queue s;
+	int ch;
+	clrscr();
+	do
+		{ cout<<"\n 1: Push 2: Pop 3:show 4:exit ";
+		cout<<"\nEnter choice";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: s.push(); break;
+			case 2: s.pop(); break;
+			case 3: s.show(); break;
+			default: cout<<"\n Wrong Choice";
+		}
+	}
+	while(ch<=3);
+}
+
+
+
+
+
+
+16 
+4. Implementation of programs based on Static - Queue (using Array)
+
+6. Assignment Name: Implement linear queue for integer / character perform different
+operation on queue ( insert,delete,display)
+
+#include<iostream.h>
+#include<conio.h>
+#include<process.h>
+int m;
+class queue
+{
+	int f,r,q[10],n,i; 
+public:
+	queue()
+	{
+		f=r=0;
+	}
+	void insert();
+	void del();
+	void dis();
+};
+void queue::insert()
+{
+	if(r==m)
+	 cout<<"\nOverflow";
+	else
+	{
+       	 cout<<"\nEnter Element in Queue=";
+	 cin>>n;
+	 if(f==0)
+ 	    f=1;
+ 	    r++;
+ 	    q[r]=n;
+	}
+}
+void queue::del()
+{
+	if(f==0)
+	{
+		cout<<"\nUnderflow";
+	}
+	else
+	{
+		int n;
+		n=q[f];
+		if(f==r)
+		 f=r=0;
+		else
+      		 f++;
+		 cout<<"\nDeleted element is "<<n;
+	}
+}
+void queue::dis()
+{
+	if(f==0)
+	 cout<<"\nUnderflow";
+	else
+	{
+	 cout<<"\nElements in queue are:";
+	 for(i=f;i<=r;i++)
+ 	  cout<<q[i]<<"\t";
+	}
+}
+void main()
+{
+	clrscr();
+	queue q;
+	int ch;
+	cout<< "Enter size of queue";
+	cin>>m;
+	cout<<"\n 1.insert 2.display 3.delete 4. exit \n";
+	while(ch!=4)
+	{
+		cout<<"\nEnter ch:";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: q.insert(); break;
+			case 2: q.dis(); break;
+			case 3: q.del(); break;
+			case 4:exit(0);
+		}
+	}
+	getch();
+}
+
+
+
+
+
+
+17
+6. Implementation of programs based on Dynamic - Stack (using Linked List)
+
+4. Assignment Name: Program to Implement Stack using LL
+
+#include<conio.h>
+#include<iostream.h>
+#include<process.h>
+class stack
+{
+	int info, ele;
+	stack *node,*link,*top;
+public:
+	stack()
+	{
+		top=NULL;
+}
+	void insert();
+	void del();
+	void dis();
+};
+void stack::insert()
+{
+	node=new stack;
+	cout<<"\nEnter Info:";
+	cin>>ele;
+	node->info=ele;
+	node->link=NULL;
+	if(top==NULL)
+	{
+		top=node;
+	}
+	else
+	{
+		node->link=top;
+		top=node;
+	}
+}
+void stack::del()
+{
+	if(top==NULL)
+	{
+		cout<<"\n Underflow";
+	}
+	else
+	{
+		cout<<"\nDeleted Element is :"<<top->info;
+		top=top->link;
+	}
+}
+void stack::dis()
+	{
+	stack *move;
+	move=top;
+	while(move!=NULL)
+	{
+		cout<<"\t"<<move->info;
+		move=move->link;
+	}
+}
+void main()
+{
+	clrscr();
+	int ch;
+	stack s;
+	cout<<"\n1.Insert 2.Show 3.Delete 4.Exit";
+	while(ch!=4)
+	{
+		cout<<"\nEnter Choice";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1: s.insert(); break;
+			case 2: s.dis(); break;
+			case 3: s.del(); break;
+			case 4:exit(0);
+		}	
+	}
+getch();
+}
+
+
+
+
+
+
+
+
+
+
+
