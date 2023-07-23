@@ -1,4 +1,4 @@
-//1
+//1 Assignment Name: Program for array perform insert, delete & display operation.
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -76,7 +76,9 @@ void main()
 
 
 
-//2
+//2 Program for matrix addition, substraction, multiplication and
+transpose of matrix
+
 #include<iostream.h>
 #include<conio.h>
 class matrix
@@ -185,7 +187,9 @@ void main()
 
 
 
-//3
+//3 : Implement Stack for Integer/character perform different
+operation on stack (push, pop, peep, change). 
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -299,7 +303,8 @@ void main()
 
 
 
-//4
+//4Assignment Name: Implement Infix to Postfix operation using stack.
+
 #include<iostream.h>
 #include<conio.h>
 #include<string.h>
@@ -376,7 +381,9 @@ void main()
 
 
 
-//5
+//5 Implement linear queue for integer / character perform different
+operation on queue ( insert,delete,display)
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -462,7 +469,9 @@ void main()
 
 
 
-//6
+//6 Implement Circular Queue, perform different operation of
+circular queue (push ,pop, show) 
+
 #include<iostream.h>
 #include<conio.h>
 class queue
@@ -568,7 +577,9 @@ void main()
 
 
 
-//7
+//7: Perform Insert, Display, delete, search, sum operation
+ on Linked list.
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -683,7 +694,8 @@ void main()
 
 
 
-//8
+//8  Implement Doubly Link List
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -776,7 +788,8 @@ void main()
 
 
 
-//9
+//9 Implement Circular Link List
+
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -905,7 +918,8 @@ void main()
 
 
 
-//10
+//10Assignment Name: Perform Bubble Sort Ascending/Descending order for int/String
+
 #include<iostream.h>
 #include<conio.h>
 class demo
@@ -996,7 +1010,8 @@ void main()
 
 
 
-//11
+//11Assignment Name: Perform Selection Sort Ascending/Descending order for int/String
+
 #include<iostream.h>
 #include<conio.h>
 class demo
@@ -1077,7 +1092,8 @@ void main()
 
 
 
-//12
+//12: Implement Insertion Sort
+
 #include<iostream.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -1134,7 +1150,8 @@ void main()
 
 
 
-//13
+//13 Name: Implement Radix Sort
+
 #include<iostream.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -1223,7 +1240,7 @@ void main()
 
 
 
-//14
+//14 : Implement Quick sort for integer in Ascending / Descending order
 #include<iostream.h>
 #include<conio.h>
 #include<string.h>
@@ -1296,7 +1313,8 @@ void main()
 
 
 
-//15
+//15 Assignment Name: Implement Merge sort in ascending / descending order
+
 #include<iostream.h>
 #include<conio.h>
 #include<stdio.h>
@@ -1393,7 +1411,7 @@ void main()
 
 
 
-//16
+//16  Implement Heap Sort in ascending / descending order
 #include<iostream.h>
 #include<conio.h>
 class heap
@@ -1486,7 +1504,7 @@ void main()
 
 
 
-//17
+//17  Name: Implement Linear and Binary Search
 #include<iostream.h>
 #include<conio.h>
 #include<process.h>
@@ -1600,7 +1618,8 @@ void main()
 
 
 
-//18
+//18  Implement Tower of Hanoi
+
 #include<iostream.h>
 #include<conio.h>
 class demo
@@ -1637,7 +1656,7 @@ void main()
 
 
 
-//19
+//19 Implement Tree Traversal
 #include<iostream.h>
 #include<process.h>
 #include<conio.h>
@@ -1736,7 +1755,8 @@ void main()
 
 
 
-//20
+//20  Implement Max/Min Heap Tree
+
 #include<iostream.h>
 #include<conio.h>
 class heap
@@ -1792,7 +1812,7 @@ void main()
 
 
 
-//21
+//21  Implement DFS
 #include<iostream.h>
 #include<conio.h>
 class dfstree
@@ -1840,7 +1860,7 @@ void main()
 
 
 
-//22
+//22 Implement BFS
 #include<iostream.h>
 #include<conio.h>
 class bfstree
@@ -1903,7 +1923,8 @@ void main()
 
 
 
-//23
+//23  Implement All Pair Shortest Path
+
 #include<iostream.h>
 #include<conio.h>
 class path
@@ -1961,7 +1982,7 @@ void main()
 
 
 
-//24
+//24 : Minimum Cost Spanning tree using Prims Algorithm
 #include<iostream.h>
 #include<conio.h>
 int n;
