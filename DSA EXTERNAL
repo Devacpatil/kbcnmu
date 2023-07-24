@@ -767,75 +767,100 @@ void main()
 
 19. Assignment Name: Implement Merge sort in ascending / descending order
 
+
 #include<iostream.h>
 #include<conio.h>
-#include<string.h>
-class demo
+#include<stdio.h>
+int n; 
+class merge
 {
-	int x[20],temp;
-	int a,n,i,j,left,right;
+	int a[10],b[10],i,j;
 public:
-	void get();
-	void asort(int,int);
-	int partition(int,int);
-			void disp();
+	void read();
+	void merge_sort(int l,int h);
+	void merge1(int l,int m, int h);
+	void disp();
 };
-void demo::get()
+void merge::read()
 {
-	cout<<"\nEnter the array size:";
-	cin>>n;
-	cout<<"\nEnter the array element:";
-	for(i=1;i<=n;i++)
-	cin>>x[i];
-	asort(1,n);
+	for(i=0;i<n;i++)
+		cin>>a[i];
 }
-void demo::asort(int p,int q)
+void merge::merge_sort(int l,int h)
 {
-	if(p<q)
-	{
-		j=partition(p,q);
-		asort(p,j-1);
-		asort(j+1,q);
+	int mid;
+	if(l<h)
+{
+		mid=int((l+h)/2);
+		merge_sort(l,mid);
+		merge_sort(mid+1,h);
+		merge1(l,mid,h);
 	}
 }
-int demo::partition(int lb, int ub)
+void merge::merge1(int low,int m,int high)
 {
-	a=x[lb];
-	left=lb+1;
-	right=ub;
-	do 
+	int h=low;
+	int i=low;
+	j=m+1;
+	while((h<=m)&&(j<=high))
 	{
-		while(x[left]<a) 
-		left++;
-		while(x[right]>a) 
-		right--;
-		if(left<right)
+		if(a[h]<=a[j]) 
 		{
-			temp=x[left];
-			x[left]=x[right];
-			x[right]=temp;
+			b[i]=a[h];
+			i++;
+			h++;
+		}
+		else
+		{
+			b[i]=a[j];
+			i++;
+			j++;
 		}
 	}
-	while(left<=right);
-	x[lb]=x[right];
-	x[right]=a;
-	return(right);
+	if(h<=m)
+	{
+		while(h<=m)
+		{
+			b[i]=a[h];
+			i++;
+			h++;
+		}
+	}
+	else
+	{
+		while(j<=h)
+		{
+			b[i]=a[j];
+			i++;
+			j++;
+		}
+	}
+	for(int k=low;k<=high;k++)
+		a[k]=b[k];
 }
-void demo::disp()
+void merge::disp()
 {
-	cout<<"\nThe array element are:";
-	for(i=1;i<=n;i++)
-	cout<<x[i]<<"\t";
+	for(i=0;i<n;i++)
+	cout<<a[i]<<"\t";
 }
 void main()
 {
 	clrscr();
-	demo d;
-	d.get();
-	cout<<"\nAfter Ascending sort"; 
-	d.disp();
-	getch();
+	int l,h;
+	merge m;
+	cout<<"\nEnter Elements";
+	cin>>n;
+	h=n-1;
+	l=0;
+		m.read();
+		cout<<"\n\nDisplay the array elements\n";
+		m.disp();
+		m.merge_sort(l,h);
+		cout<<"\nAfter Sorting\n";
+		m.disp();
+		getch();
 }
+
 
 
 
